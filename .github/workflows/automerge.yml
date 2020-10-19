@@ -1,8 +1,6 @@
 name: automerge
 
 on:
-  schedule:
-    - cron: 0 * * * *
   workflow_run:
     workflows:
       - build-test
@@ -37,7 +35,7 @@ jobs:
           ref: main
       - uses: ./
         with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           squash-title: true
           do-not-merge-labels: never-merge
           required-labels: automerge
